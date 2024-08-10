@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:habbit_tracker_app/database/habit_database.dart';
 import 'package:habbit_tracker_app/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'view/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //initialize database
+
+  await HabitDatabase.initialize();
+  await HabitDatabase().saveFirstLaunchDate();
+
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (context) => HabitDatabase(),
+        ),
         ChangeNotifierProvider(
           create: (context) => ThemeProvider(),
         ),

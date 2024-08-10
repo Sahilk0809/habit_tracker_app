@@ -14,7 +14,7 @@ ThemeData darkMode = ThemeData(
   colorScheme: ColorScheme.light(
     surface: Colors.grey[900]!,
     primary: Colors.grey[600]!,
-    secondary: Colors.grey[700]!,
+    secondary: const Color(0xff323232),
     tertiary: Colors.grey[800],
     inversePrimary: Colors.grey[300],
   ),
