@@ -38,6 +38,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
+          // cancel button
+          MaterialButton(
+            onPressed: () {
+              // pop box
+              Navigator.pop(context);
+
+              // clear controller
+              txtController.clear();
+            },
+            child: const Text('Cancel'),
+          ),
+
           MaterialButton(
             onPressed: () {
               // get new habit name
@@ -53,18 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
               txtController.clear();
             },
             child: const Text('Save'),
-          ),
-
-          // cancel button
-          MaterialButton(
-            onPressed: () {
-              // pop box
-              Navigator.pop(context);
-
-              // clear controller
-              txtController.clear();
-            },
-            child: const Text('Cancel'),
           ),
         ],
       ),
@@ -90,6 +90,18 @@ class _HomeScreenState extends State<HomeScreen> {
           controller: txtController,
         ),
         actions: [
+          // cancel button
+          MaterialButton(
+            onPressed: () {
+              // pop box
+              Navigator.pop(context);
+
+              // clear controller
+              txtController.clear();
+            },
+            child: const Text('Cancel'),
+          ),
+
           MaterialButton(
             onPressed: () {
               // get new habit name
@@ -108,18 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Text('Save'),
           ),
-
-          // cancel button
-          MaterialButton(
-            onPressed: () {
-              // pop box
-              Navigator.pop(context);
-
-              // clear controller
-              txtController.clear();
-            },
-            child: const Text('Cancel'),
-          ),
         ],
       ),
     );
@@ -132,6 +132,15 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context) => AlertDialog(
         content: const Text('Are you sure you want to delete'),
         actions: [
+          // cancel button
+          MaterialButton(
+            onPressed: () {
+              // pop box
+              Navigator.pop(context);
+            },
+            child: const Text('Cancel'),
+          ),
+
           // delete button
           MaterialButton(
             onPressed: () {
@@ -146,15 +155,6 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Text('Delete'),
           ),
-
-          // cancel button
-          MaterialButton(
-            onPressed: () {
-              // pop box
-              Navigator.pop(context);
-            },
-            child: const Text('Cancel'),
-          ),
         ],
       ),
     );
@@ -168,9 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         elevation: 0,
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         leading: const Icon(Icons.account_circle_outlined),
+        title: const Text('Habit Tracker'),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
@@ -198,8 +200,11 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: createNewHabit,
         elevation: 0,
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        child: const Icon(Icons.add),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
       ),
     );
   }
@@ -224,7 +229,6 @@ class _HomeScreenState extends State<HomeScreen> {
             datasets: prepareHeatMapDataset(currentHabit),
           );
         }
-
         // handle case where no data is returned
         else {
           return const Center(
