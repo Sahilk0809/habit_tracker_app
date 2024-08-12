@@ -11,4 +11,4 @@ Transform your daily routine with our habit tracker app, built using Flutter for
 
 <a href="https://github.com/Sahilk0809/habit_tracker_app/tree/master/lib"> Click here for the source code </a>
 
-https://github.com/user-attachments/assets/c459ffab-4c1e-478a-bcdd-be8fe4fc1777
+https://github.com/user-attachments/assets/6b8b4649-5dc5-4f70-9605-ddf5ac454b0b
